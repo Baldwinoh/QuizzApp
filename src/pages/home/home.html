@@ -1,14 +1,144 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Baldwino's Quizz App
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding class="container">
+    <div padding>
+        <h1 align="center" style="color:rgb(13, 13, 17)">Lets see who's smatter, Answer the following Quizz</h1>
+        <ion-segment [(ngModel)]="Quizz">
+            <ion-segment-button style="color:rgb(10, 14, 12)" value="Celebtrity">
+                Celebtrity
+            </ion-segment-button>
+            <ion-segment-button style="color:rgb(10, 14, 12)" value="Computer">
+                computer
+            </ion-segment-button>
+            <ion-segment-button style="color:rgb(10, 14, 12)" value="Soccer">
+                Soccer
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+    <div [ngSwitch]="Quizz">
+        <ion-list *ngSwitchCase="'Celebtrity'">
+            <ion-item>
+                <ion-label style="color:rgb(15, 19, 15)">Who is the most beautiful celeb in Mzansi?</ion-label>
+                <ion-select [(ngModel)]="celebrity1">
+                    <ion-option *ngFor="let celeb of celeb1" [value]="celb1">{{celeb}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color:rgb(10, 14, 12)">Who is the richest celeb in Mzansi?</ion-label>
+                <ion-select [(ngModel)]="celebrity2">
+                    <ion-option *ngFor="let celeb of celeb2" [value]="celb2">{{celeb}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color:rgb(13, 17, 15)">Who was the first to get acting role is the US?</ion-label>
+                <ion-select [(ngModel)]="celebrity3">
+                    <ion-option *ngFor="let celeb of celeb3" [value]="celb3">{{celeb}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color:rgb(14, 20, 17)">Which show is the Trevor Noah the host?</ion-label>
+                <ion-select [(ngModel)]="celebrity4">
+                    <ion-option *ngFor="let celeb of celeb4" [value]="celb4">{{celeb}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color:rgb(11, 15, 12)">In Which year was Jacob zuma Born?</ion-label>
+                <ion-select [(ngModel)]="celebrity5">
+                    <ion-option *ngFor="let celeb of celeb5" [value]="celb5">{{celeb}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <button ion-button color="primary" (click)="totalCelebScore()">Save</button>
+
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <div [ngSwitch]="Quizz">
+        <ion-list *ngSwitchCase="'Computer'">
+            <ion-item>
+                <ion-label style="color:rgb(15, 19, 15)">What do you call a portable computer?</ion-label>
+                <ion-select [(ngModel)]="computer1">
+                    <ion-option *ngFor="let comp of computerQs1" [value]="compu1">{{comp}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color:rgb(10, 14, 12)">
+                    What are REAL Anti-Virus software?</ion-label>
+                <ion-select [(ngModel)]="computer2">
+                    <ion-option *ngFor="let comp of computerQs2" [value]="compu2">{{comp}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color:rgb(13, 17, 15)">What memory below is the largest?</ion-label>
+                <ion-select [(ngModel)]="computer3">
+                    <ion-option *ngFor="let comp of computerQs3" [value]="compu3">{{comp}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color:rgb(14, 20, 17)">
+                    Do you need a a Internet browser to go on the Internet?</ion-label>
+                <ion-select [(ngModel)]="computer4">
+                    <ion-option *ngFor="let comp of computerQs4" [value]="compu4">{{comp}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color:rgb(11, 15, 12)">
+                    What is the most used search engine?</ion-label>
+                <ion-select [(ngModel)]="computer5">
+                    <ion-option *ngFor="let comp of computerQs5" [value]="compu5">{{comp}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <button ion-button color="primary" (click)="subitCompScor()">Save</button>
+
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <div [ngSwitch]="Quizz">
+        <ion-list *ngSwitchCase="'Soccer'">
+            <ion-item>
+                <ion-label style="color:rgb(15, 19, 15)">Which of these players is not Brazillian?</ion-label>
+                <ion-select [(ngModel)]="soccer1">
+                    <ion-option *ngFor="let soc of celeb1" [value]="socce1">{{soc}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color:rgb(10, 14, 12)"> Whos is the captain of Kaizer Chiefs?</ion-label>
+                <ion-select [(ngModel)]="soccer2">
+                    <ion-option *ngFor="let soc of celeb2" [value]="socce2">{{soc}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color:rgb(13, 17, 15)">Who is the coach of Cape Town City?</ion-label>
+                <ion-select [(ngModel)]="soccer3">
+                    <ion-option *ngFor="let soc of celeb3" [value]="socce3">{{soc}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color:rgb(14, 20, 17)">Who is the President of Mamelodi Sundows?</ion-label>
+                <ion-select [(ngModel)]="soccer4">
+                    <ion-option *ngFor="let soc of celeb4" [value]="socce4">{{soc}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color:rgb(11, 15, 12)">Which team does Andile Jali play for?</ion-label>
+                <ion-select [(ngModel)]="soccer5">
+                    <ion-option *ngFor="let soc of celeb5" [value]="socce5">{{soc}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <button ion-button color="dark" (click)="subitSoccerScor()">Save</button>
+
+            </ion-item>
+        </ion-list>
+    </div>
+    <button ion-button color="primary" full (click)="checkscore()">Total Score</button>
 </ion-content>
